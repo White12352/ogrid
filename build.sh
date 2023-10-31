@@ -80,6 +80,12 @@ function build_firmware(){
     # fix upnp https://forum.gl-inet.cn/forum.php?mod=viewthread&tid=3240&highlight=upnp
     rm -rf feeds/packages/net/miniupnpd
     svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/miniupnpd feeds/packages/net/miniupnpd
+
+    # update tailscale
+    rm -rf feeds/luci/applications/luci-app-smartdns
+    rm -rf feeds/packages/net/smartdns
+    svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns feeds/luci/applications/luci-app-smartdns
+    svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns feeds/packages/net/smartdns
     
     # add fullcorenat patch
     # mkdir package/network/config/firewall/patches
