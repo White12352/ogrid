@@ -15,6 +15,7 @@ packages:
   # - ddns-scripts
   # - ddns-scripts-services
   # - ddns-scripts_aliyun
+  - luci-app-smartdns
   - dnsmasq-full
   # - luci-app-commands
   - luci-app-mwan3
