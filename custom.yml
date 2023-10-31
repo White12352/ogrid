@@ -21,6 +21,8 @@ packages:
   # - iptables-mod-fullconenat
   # - luci-app-fullconenat
   - kmod-gl-sdk4-tertf
+  - kmod-inet-diag
+  - kmod-netlink-diag
   - kmod-zram
   - zram-swap
   - kmod-gl-sdk4-parental-control
