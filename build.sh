@@ -81,7 +81,7 @@ function build_firmware(){
     rm -rf feeds/packages/net/miniupnpd
     svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/miniupnpd feeds/packages/net/miniupnpd
 
-    # update tailscale
+    # update smartdns
     rm -rf feeds/luci/applications/luci-app-smartdns
     rm -rf feeds/packages/net/smartdns
     svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns feeds/luci/applications/luci-app-smartdns
