@@ -81,6 +81,10 @@ function build_firmware(){
     rm -rf feeds/packages/net/miniupnpd
     svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/miniupnpd feeds/packages/net/miniupnpd
     
+    # fix adguardhome build error
+    rm -rf feeds/packages/net/adguardhome
+    svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome feeds/packages/net/adguardhome
+    
     # add fullcorenat patch
     # mkdir package/network/config/firewall/patches
     # cp $CRTDIR/fullconenat.patch package/network/config/firewall/patches/fullconenat.patch
