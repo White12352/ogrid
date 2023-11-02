@@ -13,7 +13,6 @@ packages:
   # - ddns-scripts_aliyun
   - dnsmasq-full
   # - luci-app-commands
-  - luci-app-adguardhome
   - luci-app-mwan3
   - luci-app-syncdial
   # - luci-app-eqos
