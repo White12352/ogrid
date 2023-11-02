@@ -4,22 +4,16 @@ feeds:
   - name: helloworld
     uri: https://github.com/fw876/helloworld.git
     branch: master
-  - name: paswall
-    uri: https://github.com/xiaorouji/openwrt-passwall.git
-    branch: luci-smartdns-dev
-  - name: passwall-packages
-    uri: https://github.com/White12352/openwrt-passwall-packages.git
-    branch: main
 packages:
   - luci-app-ssr-plus
   - luci-app-passwall
   - luci-compat
-  - luci-app-adguardhome
+  #- luci-app-adguardhome
   # - luci-app-ddns
   # - ddns-scripts
   # - ddns-scripts-services
   # - ddns-scripts_aliyun
-  - luci-app-smartdns
+  #- luci-app-smartdns
   - dnsmasq-full
   # - luci-app-commands
   - luci-app-mwan3
