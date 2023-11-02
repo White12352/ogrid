@@ -51,6 +51,9 @@ rm -f $base/gl-infra-builder/patches-mt798x-7.6.6.1/3003-target-mediatek-mtk-eth
 # add fullcorenat
 # git clone -b master https://github.com/LGA1150/openwrt-fullconenat.git custom/openwrt-fullconenat
 # git clone -b master https://github.com/peter-tank/luci-app-fullconenat.git custom/luci-app-fullconenat
+# add passwall
+git clone --depth 1 -b main https://github.com/White12352/openwrt-passwall-packages custom/passwall
+git clone --depth 1 -b luci-smartdns-dev https://github.com/xiaorouji/openwrt-passwall custom/luci-app-passwall
 # add custom ended
 cp -r custom/  $base/gl-infra-builder/feeds/custom/
 cp -r *.yml $base/gl-infra-builder/profiles
@@ -82,10 +85,10 @@ function build_firmware(){
     svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/miniupnpd feeds/packages/net/miniupnpd
 
     # update smartdns
-    rm -rf feeds/luci/applications/luci-app-smartdns
-    rm -rf feeds/packages/net/smartdns
-    svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns feeds/luci/applications/luci-app-smartdns
-    svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns feeds/packages/net/smartdns
+    #rm -rf feeds/luci/applications/luci-app-smartdns
+    #rm -rf feeds/packages/net/smartdns
+    #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns feeds/luci/applications/luci-app-smartdns
+    #svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns feeds/packages/net/smartdns
     
     # add fullcorenat patch
     # mkdir package/network/config/firewall/patches
