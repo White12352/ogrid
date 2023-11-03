@@ -1,11 +1,11 @@
 feeds:
   - name: custom
     path: ../feeds_dir/custom
-  - name: helloworld
-    uri: https://github.com/fw876/helloworld.git
-    branch: master
+  #- name: helloworld
+    #uri: https://github.com/fw876/helloworld.git
+    #branch: master
 packages:
-  - luci-app-ssr-plus
+  #- luci-app-ssr-plus
   - luci-app-passwall
   - luci-compat
   #- luci-app-adguardhome
