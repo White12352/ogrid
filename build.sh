@@ -85,7 +85,8 @@ function build_firmware(){
     rm -rf feeds/packages/net/adguardhome
     #svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome feeds/packages/net/adguardhome
     #svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/net/adguardhome feeds/packages/net/adguardhome
-    svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
+    #svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
+    svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome feeds/packages/net/adguardhome
     
     # add fullcorenat patch
     # mkdir package/network/config/firewall/patches
