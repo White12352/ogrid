@@ -86,8 +86,7 @@ function build_firmware(){
     svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/miniupnpd feeds/packages/net/miniupnpd
 
     # fix compile kmod-inet-diag
-    rm -rf package/kernel/linux/modules/netsupport.mk
-    svn co https://github.com/White12352/openwrt-21.02/branches/openwrt-21.02/package/kernel/linux/modules/netsupport.mk package/kernel/linux/modules
+    awk '/^\$\(eval \$\(call KernelPackage,netlink-diag\)\)/{print "$(eval $(call KernelPackage,netlink-diag))"; print ""; print ""; print "define KernelPackage/inet-diag"; print "  SUBMENU:=$(NETWORK_SUPPORT_MENU)"; print "  TITLE:=INET diag support for ss utility"; print "  KCONFIG:= \\"; print "\tCONFIG_INET_DIAG \\"; print "\tCONFIG_INET_TCP_DIAG \\"; print "\tCONFIG_INET_UDP_DIAG \\"; print "\tCONFIG_INET_RAW_DIAG \\"; print "\tCONFIG_INET_DIAG_DESTROY=n"; print "  FILES:= \\"; print "\t$(LINUX_DIR)/net/ipv4/inet_diag.ko \\"; print "\t$(LINUX_DIR)/net/ipv4/tcp_diag.ko \\"; print "\t$(LINUX_DIR)/net/ipv4/udp_diag.ko \\"; print "\t$(LINUX_DIR)/net/ipv4/raw_diag.ko"; print "  AUTOLOAD:=$(call AutoLoad,31,inet_diag tcp_diag udp_diag raw_diag)"; print "endef"; print ""; print "define KernelPackage/inet-diag/description"; print "Support for INET (TCP, DCCP, etc) socket monitoring interface used by"; print "native Linux tools such as ss."; print "endef"; print ""; print "$(eval $(call KernelPackage,inet-diag))"; next}1' package/kernel/linux/modules/netsupport.mk > temp_file && mv -f temp_file package/kernel/linux/modules/netsupport.mk
 
     # update smartdns
     #rm -rf feeds/luci/applications/luci-app-smartdns
