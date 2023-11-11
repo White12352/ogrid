@@ -51,6 +51,8 @@ diffconfig: |
   CONFIG_PACKAGE_shadowsocksr-libev-ssr-redir=n
   CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple_Obfs=n
   CONFIG_PACKAGE_simple-obfs-client=n
+  CONFIG_PACKAGE_luci-app-passwall_INCLUDE_SingBox=n
+  CONFIG_PACKAGE_sing-box=n
   CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO=n
   CONFIG_PACKAGE_trojan=n
   CONFIG_PACKAGE_trojan-go=n
