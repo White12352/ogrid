@@ -62,6 +62,7 @@ cd $base/gl-infra-builder
 
 function build_firmware(){
     cd ~/openwrt
+    ls -la
     need_gl_ui=$1
     ui_path=$2
     # setup version
@@ -83,6 +84,10 @@ function build_firmware(){
     # fix upnp https://forum.gl-inet.cn/forum.php?mod=viewthread&tid=3240&highlight=upnp
     rm -rf feeds/packages/net/miniupnpd
     svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/miniupnpd feeds/packages/net/miniupnpd
+
+    # fix compile kmod-inet-diag
+    rm -rf package/kernel/linux/modules/netsupport.mk
+    svn co https://github.com/White12352/openwrt-21.02/branches/openwrt-21.02/package/kernel/linux/modules/netsupport.mk package/kernel/linux/modules
 
     # update smartdns
     #rm -rf feeds/luci/applications/luci-app-smartdns
