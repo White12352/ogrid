@@ -15,8 +15,10 @@ packages:
   # - luci-app-commands
   - luci-app-adguardhome
   - luci-app-mwan3
+  - luci-app-smartdns
   - luci-app-syncdial
   # - luci-app-eqos
+  - luci-app-unblockneteasemusic
   - luci-app-upnp
   # - kmod-ipt-fullconenat
   # - iptables-mod-fullconenat
