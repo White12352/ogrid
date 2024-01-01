@@ -87,6 +87,16 @@ function build_firmware(){
     #svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/net/adguardhome feeds/packages/net/adguardhome
     svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
     #svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome feeds/packages/net/adguardhome
+
+    # add smartdns
+    rm -rf feeds/luci/applications/luci-app-smartdns
+    rm -rf feeds/packages/net/smartdns
+    git clone --depth=1 -b master https://github.com/White12352/luci-app-smartdns.git package/luci-app-smartdns
+    svn co https://github.com/immortalwrt/packages/trunk/net/smartdns feeds/packages/net/smartdns
+
+    # add unblockneteasemusic
+    rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
+    git clone --depth=1 -b js https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
     
     # add fullcorenat patch
     # mkdir package/network/config/firewall/patches
