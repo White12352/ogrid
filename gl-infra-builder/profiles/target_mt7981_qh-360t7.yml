@@ -7,10 +7,10 @@ description: Build image for the QiHoo 360T7
 feeds:
   - name: gl_feed_common
     uri: https://github.com/gl-inet/gl-feeds.git
-    revision: 86b1d0f56c9e2b2f4f2f12562ba181cc22490198
+    revision: 18952d3d77e4c5d5c2e9e6917448c197d9ffdb44
   - name: gl_feed_21_02
     uri: https://github.com/gl-inet/gl-feeds.git
-    revision: 44d2d82eceb5e45c519f68f1838582ddbfe83a86
+    revision: 5ca5e2a9120c30bdd34368df1c07d806c48788dc
   - name: gl_feed_mtk
     uri: https://github.com/gl-inet/gl-feeds.git
     # 7.6.6.1
