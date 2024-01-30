@@ -53,7 +53,7 @@ rm -f $base/gl-infra-builder/patches-mt798x-7.6.6.1/3003-target-mediatek-mtk-eth
 # git clone -b master https://github.com/peter-tank/luci-app-fullconenat.git custom/luci-app-fullconenat
 # add passwall
 git clone --depth 1 -b main https://github.com/White12352/openwrt-passwall-packages custom/passwall
-git clone --depth 1 -b luci-smartdns-dev-st1 https://github.com/White12352/openwrt-passwall custom/luci-app-passwall
+git clone --depth 1 -b luci-smartdns-dev https://github.com/White12352/openwrt-passwall custom/luci-app-passwall
 # add custom ended
 cp -r custom/  $base/gl-infra-builder/feeds/custom/
 cp -r *.yml $base/gl-infra-builder/profiles
