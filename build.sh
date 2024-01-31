@@ -72,17 +72,17 @@ function build_firmware(){
     
     # fix helloword build error
     rm -rf feeds/packages/lang/golang
-    rm -rf feeds/packages/lang/rust
+    #rm -rf feeds/packages/lang/rust
     #svn co https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/packages/lang/golang
     git clone --depth 1 -b openwrt-23.05 https://github.com/openwrt/packages custom/t
     cp -rf custom/t/lang/golang feeds/packages/lang/golang
-    cp -rf custom/t/lang/rust feeds/packages/lang/rust
+    #cp -rf custom/t/lang/rust feeds/packages/lang/rust
     rm -rf custom/t
     rm -rf feeds/gl_feed_common/golang
-    rm -rf feeds/gl_feed_common/rust
+    #rm -rf feeds/gl_feed_common/rust
     #svn co https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/gl_feed_common/golang
     cp -rf feeds/packages/lang/golang feeds/gl_feed_common/golang
-    cp -rf feeds/packages/lang/rust feeds/gl_feed_common/rust
+    #cp -rf feeds/packages/lang/rust feeds/gl_feed_common/rust
     
     # update tailscale
     rm -rf feeds/gl_feed_common/tailscale
