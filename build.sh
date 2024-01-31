@@ -90,7 +90,10 @@ function build_firmware(){
     
     # fix upnp https://forum.gl-inet.cn/forum.php?mod=viewthread&tid=3240&highlight=upnp
     rm -rf feeds/packages/net/miniupnpd
-    svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/miniupnpd feeds/packages/net/miniupnpd
+    git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/packages custom/t2
+    #svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/miniupnpd feeds/packages/net/miniupnpd
+    cp -rf custom/t2/net/miniupnpd feeds/packages/net/miniupnpd
+    rm -rf custom/t2
 
     # fix compile kmod-inet-diag
     awk '/^\$\(eval \$\(call KernelPackage,netlink-diag\)\)/{print "$(eval $(call KernelPackage,netlink-diag))"; print ""; print ""; print "define KernelPackage/inet-diag"; print "  SUBMENU:=$(NETWORK_SUPPORT_MENU)"; print "  TITLE:=INET diag support for ss utility"; print "  KCONFIG:= \\"; print "\tCONFIG_INET_DIAG \\"; print "\tCONFIG_INET_TCP_DIAG \\"; print "\tCONFIG_INET_UDP_DIAG \\"; print "\tCONFIG_INET_RAW_DIAG \\"; print "\tCONFIG_INET_DIAG_DESTROY=n"; print "  FILES:= \\"; print "\t$(LINUX_DIR)/net/ipv4/inet_diag.ko \\"; print "\t$(LINUX_DIR)/net/ipv4/tcp_diag.ko \\"; print "\t$(LINUX_DIR)/net/ipv4/udp_diag.ko \\"; print "\t$(LINUX_DIR)/net/ipv4/raw_diag.ko"; print "  AUTOLOAD:=$(call AutoLoad,31,inet_diag tcp_diag udp_diag raw_diag)"; print "endef"; print ""; print "define KernelPackage/inet-diag/description"; print "Support for INET (TCP, DCCP, etc) socket monitoring interface used by"; print "native Linux tools such as ss."; print "endef"; print ""; print "$(eval $(call KernelPackage,inet-diag))"; next}1' package/kernel/linux/modules/netsupport.mk > temp_file && mv -f temp_file package/kernel/linux/modules/netsupport.mk
