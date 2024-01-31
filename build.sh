@@ -72,7 +72,10 @@ function build_firmware(){
     
     # fix helloword build error
     rm -rf feeds/packages/lang/golang
-    svn co https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/packages/lang/golang
+    #svn co https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/packages/lang/golang
+    git clone --depth 1 -b openwrt-23.05 https://github.com/openwrt/packages custom/t
+    cp -rf custom/t/lang/golang feeds/packages/lang/golang
+    rm -rf custom/t
     rm -rf feeds/gl_feed_common/golang
     #svn co https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/gl_feed_common/golang
     cp -rf feeds/packages/lang/golang feeds/gl_feed_common/golang
