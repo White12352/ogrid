@@ -68,7 +68,10 @@ function build_firmware(){
     
     # fix helloword build error
     rm -rf feeds/packages/lang/golang
-    svn co https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/packages/lang/golang
+    #svn co https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/packages/lang/golang
+    git clone --depth 1 -b openwrt-23.05 https://github.com/openwrt/packages custom/t
+    cp -rf custom/t/lang/golang feeds/packages/lang/golang
+    rm -rf custom/t
     rm -rf feeds/gl_feed_common/golang
     #svn co https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/gl_feed_common/golang
     cp -rf feeds/packages/lang/golang feeds/gl_feed_common/golang
@@ -79,20 +82,27 @@ function build_firmware(){
     
     # fix upnp https://forum.gl-inet.cn/forum.php?mod=viewthread&tid=3240&highlight=upnp
     rm -rf feeds/packages/net/miniupnpd
-    svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/miniupnpd feeds/packages/net/miniupnpd
+    git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/packages custom/t2
+    #svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/miniupnpd feeds/packages/net/miniupnpd
+    cp -rf custom/t2/net/miniupnpd feeds/packages/net/miniupnpd
+    rm -rf custom/t2
     
     # fix adguardhome build error
     rm -rf feeds/packages/net/adguardhome
     #svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome feeds/packages/net/adguardhome
     #svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/net/adguardhome feeds/packages/net/adguardhome
-    svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
+    git clone --depth=1 -b master https://github.com/immortalwrt/packages.git i
+    cp -rf i/net/adguardhome feeds/packages/net
+    #svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
     #svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome feeds/packages/net/adguardhome
 
     # add smartdns
     rm -rf feeds/luci/applications/luci-app-smartdns
     rm -rf feeds/packages/net/smartdns
+    cp -rf i/net/smartdns feeds/packages/net
+    rm -rf i
     git clone --depth=1 -b master https://github.com/White12352/luci-app-smartdns.git package/luci-app-smartdns
-    svn co https://github.com/immortalwrt/packages/trunk/net/smartdns feeds/packages/net/smartdns
+    #svn co https://github.com/immortalwrt/packages/trunk/net/smartdns feeds/packages/net/smartdns
 
     # add unblockneteasemusic
     rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
