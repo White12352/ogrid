@@ -5,7 +5,7 @@ feeds:
     uri: https://github.com/fw876/helloworld.git
     branch: master
 packages:
-  - luci-app-ssr-plus
+  #- luci-app-ssr-plus
   - luci-compat
   # - luci-app-ddns
   # - ddns-scripts
